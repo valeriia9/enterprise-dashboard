@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Companies</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="assets/img/favicon/icon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/jquery.jscrollpane.css">
+    <link rel="stylesheet" href="assets/css/daterangepicker.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <!-- Mordernizer -->
+    <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
+
+    <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
+</head>
+
+<body>
+    <div class="dashboard-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="sidebar">
+                        <div class="logo">
+                            <img width="40" src="assets/img/logo.png" alt="">
+                        </div>
+                        <div class="main-menu">
+                            <ul>
+                                <li><a href="index.html"><span class="icon"><img src="assets/img/icon-1.png"
+                                                alt=""></span><span class="text">Dashboard</span></a></li>
+                                <li class="active"><a href="companies.html"><span class="icon"><img
+                                                src="assets/img/icon-2.png" alt=""></span><span
+                                            class="text">Companies</span></a></li>
+                                <li><a href="account.html"><span class="icon"><img src="assets/img/icon-3.png"
+                                                alt=""></span><span class="text">My Account</span></a></li>
+                                <li><a href="resources.html"><span class="icon"><img src="assets/img/icon-4.png"
+                                                alt=""></span><span class="text">Resources</span></a></li>
+                                <li><a href="reporting.html"><span class="icon"><img src="assets/img/icon-5.png"
+                                                alt=""></span><span class="text">Reporting</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-footer">
+                            <a href="#" class="btn btn-round"><i class="fas fa-cog"></i></a>
+                            <a href="#" class="btn btn-round"><img src="assets/img/icon-6.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="dashboard">
+                        <div class="dashborad-header">
+                            <div class="dashborad-header-title">
+                                <h1>Enterprise Dashboard</h1>
+                            </div>
+                            <div class="dashborad-header-right">
+                                <a href="#" class="btn btn-support"><img src="assets/img/support.png" alt=""></a>
+                                <div class="user-info">
+                                    <div class="author" data-toggle="dropdown">
+                                        <div class="author-image active">
+                                            <img src="assets/img/author.jpg" alt="">
+                                        </div>
+                                        <h2>Eric Smith</h2>
+                                    </div>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Logout</a>
+                                    </div>
+                                </div>
+                                <button id="menu-tigger" class="menu-tigger">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="dashborad-body">
+                            <h3 class="title">Companies <span class="info" data-toggle="popover" data-placement="top"
+                                    data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."><i
+                                        class="fas fa-info-circle"></i></span></h3>
+                            <div class="dashborad-card">
+                                <div class="table-filter-wrap">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="table-filter-select">
+                                                <label>Show</label>
+                                                <select>
+                                                    <option value="">10</option>
+                                                    <option value="">20</option>
+                                                    <option value="">30</option>
+                                                </select>
+                                                <span>entries</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="table-head-right">
+                                                <div class="search-filter">
+                                                    <i class="fas fa-search"></i>
+                                                    <input type="text" placeholder="Search ...">
+                                                </div>
+                                                <div class="table-button">
+                                                    <button><img src="assets/img/excel.png" alt=""></button>
+                                                    <button><img src="assets/img/pdf.png" alt=""></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="datatable-box">
+                                    <table class="datatable">
+                                        <thead>
+                                            <tr>
+                                                <th>BID <span class="info up" data-toggle="popover" data-placement="top"
+                                                        data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."><i
+                                                            class="fas fa-question-circle"></i></span></th>
+                                                <th>Company Name <span class="info up" data-toggle="popover"
+                                                        data-placement="top"
+                                                        data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."><i
+                                                            class="fas fa-question-circle"></i></span></th>
+                                                <th>Account Email <span class="info up" data-toggle="popover"
+                                                        data-placement="top"
+                                                        data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."><i
+                                                            class="fas fa-question-circle"></i></span></th>
+                                                <th>industry_type <span class="info up" data-toggle="popover"
+                                                        data-placement="top"
+                                                        data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."><i
+                                                            class="fas fa-question-circle"></i></span></th>
+                                                <th>first_used <span class="info up" data-toggle="popover"
+                                                        data-placement="top"
+                                                        data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."><i
+                                                            class="fas fa-question-circle"></i></span></th>
+                                                <th>last_used <span class="info up" data-toggle="popover"
+                                                        data-placement="top"
+                                                        data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."><i
+                                                            class="fas fa-question-circle"></i></span></th>
+                                                <th>total_sent <span class="info up" data-toggle="popover"
+                                                        data-placement="top"
+                                                        data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."><i
+                                                            class="fas fa-question-circle"></i></span></th>
+                                                <th>Action <span class="info up" data-toggle="popover"
+                                                        data-placement="top"
+                                                        data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."><i
+                                                            class="fas fa-question-circle"></i></span></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="table-tbody">
+                                            <tr class="table-tooltip" data-toggle="tooltip" data-html="true"
+                                                data-placement="top"
+                                                title="2021-03-01 <br><strong>Device keys: 2</strong>">
+                                                <td>0000001111</td>
+                                                <td>Chayanntics' & Test Company</td>
+                                                <td>sjones@gsjonesrestor...</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td><a href="#" class="btn btn-round"><i
+                                                            class="fas fa-sign-in-alt"></i></a></td>
+                                            </tr>
+                                            <tr class="table-tooltip" data-toggle="tooltip" data-html="true"
+                                                data-placement="top"
+                                                title="2021-03-01 <br><strong>Device keys: 2</strong>">
+                                                <td>11003595</td>
+                                                <td>Sample Two 1100355</td>
+                                                <td>Rivercitybath@gmail.c...</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td><a href="#" class="btn btn-round"><i
+                                                            class="fas fa-sign-in-alt"></i></a></td>
+                                            </tr>
+                                            <tr class="table-tooltip" data-toggle="tooltip" data-html="true"
+                                                data-placement="top"
+                                                title="2021-03-01 <br><strong>Device keys: 2</strong>">
+                                                <td>12003637</td>
+                                                <td>Miller Plumbing Heating and Cooling</td>
+                                                <td>Pittsburgbbb@reviewr...</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td><a href="#" class="btn btn-round"><i
+                                                            class="fas fa-sign-in-alt"></i></a></td>
+                                            </tr>
+                                            <tr class="table-tooltip" data-toggle="tooltip" data-html="true"
+                                                data-placement="top"
+                                                title="2021-03-01 <br><strong>Device keys: 2</strong>">
+                                                <td>18001659</td>
+                                                <td>Emmert Dental Associates</td>
+                                                <td>mlboyd1@aol.com</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td><a href="#" class="btn btn-round"><i
+                                                            class="fas fa-sign-in-alt"></i></a></td>
+                                            </tr>
+                                            <tr class="table-tooltip" data-toggle="tooltip" data-html="true"
+                                                data-placement="top"
+                                                title="2021-03-01 <br><strong>Device keys: 2</strong>">
+                                                <td>18001659</td>
+                                                <td>Emmert Dental Associates</td>
+                                                <td>mlboyd1@aol.com</td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td><a href="#" class="btn btn-round"><i
+                                                            class="fas fa-sign-in-alt"></i></a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="table-pagination">
+                                    <ul>
+                                        <li><a href="#"><i class="fas fa-chevron-left"></i></a></li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#"><i class="fas fa-chevron-right"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        //<div id="myGrid" style="height: 500px; width:500px;" class="ag-theme-balham"></div>
+
+        var cors_api_url = 'https://cors-anywhere.herokuapp.com/';
+        function doCORSRequest(options, printResult) {
+            var x = new XMLHttpRequest();
+            x.open(options.method, cors_api_url + options.url);
+            x.onload = x.onerror = function() {
+                printResult(x.responseText );
+            };
+            if (/^POST/i.test(options.method)) {
+                x.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            }
+            x.send(options.data);
+        }
+        var urlField = 'https://thereviewsolution.com/app/index.php/api/v3/GetExpressBBBEndpointv3/access_token/STR5555555555/bbbid/0382';
+        var outputField ;
+
+        doCORSRequest({
+            method: 'GET',
+            url: urlField            
+        }, function printResult(rr) {
+            console.log(rr);
+            var myobj = JSON.parse(JSON.stringify(rr));
+            console.log(typeof myobj);
+            
+            //var data = JSON.parse(result);
+            /*var array = result["result"];
+            str = "";
+            for (var i = 0; i < 10; i++) {
+                str += "<tr>";
+                str = str + "<td>" + array[i]['bid'] + "</td>";
+                str = str + "<td>" + array[i]['company_name'] + "</td>";
+                str = str + "<td>" + array[i]['account_email'] + "</td>";
+                str = str + "<td>" + array[i]['industry_type'] + "</td>";
+                str = str + "<td>" + array[i]['first_used'] + "</td>";
+                str = str + "<td>" + array[i]['last_used'] + "</td>";
+                str = str + "<td>" + array[i]['total_sent'] + "</td>";
+                str = str + "<td>" + "<a href=\"#\" class=\"btn btn-round\"><i class=\"fas fa-sign-in-alt\"></i></a>" + "</tr>";
+            }
+            $("#table-tbody").html(str);*/
+            //outputField = result;
+            //console.log( data );
+        });
+
+/*
+
+       
+        const columnDefs = [
+            { field: 'bid' },
+            { field: 'company_name'},
+            { field: 'account_email'},
+            { field: 'industry_type'},
+            { field: 'first_used' },
+            { field: 'last_used' },
+            { field: 'total_sent'},
+            // {field: 'make'},
+        ];
+        const gridOptions = {
+            columnDefs: columnDefs,
+        };
+        const eGridDev = document.querySelector('#table-tbody');
+        new agGrid.Grid(eGridDev, gridOptions);
+     
+        var myUrl = 'https://thereviewsolution.com/app/index.php/api/v3/GetExpressBBBEndpointv3/access_token/STR5555555555/bbbid/0382';
+        var myUrl1 = 'https://www.ag-grid.com/example-assets/row-data.json';
+        var proxy = 'https://127.0.0.1:8080/';
+        var finalURL= proxy + myUrl ;
+
+        agGrid.simpleHttpRequest({ url: finalURL })
+            .then(data => {
+                //gridOptions.api.setRowData(data.result);
+                console.log(data.length)
+                
+                var array = data.result;
+                str = "";
+                for (var i = 0; i < 10; i++) {
+                    str += "<tr>";
+                    str = str + "<td>" + array[i]['bid'] + "</td>";
+                    str = str + "<td>" + array[i]['company_name'] + "</td>";
+                    str = str + "<td>" + array[i]['account_email'] + "</td>";
+                    str = str + "<td>" + array[i]['industry_type'] + "</td>";
+                    str = str + "<td>" + array[i]['first_used'] + "</td>";
+                    str = str + "<td>" + array[i]['last_used'] + "</td>";
+                    str = str + "<td>" + array[i]['total_sent'] + "</td>";
+                    str = str + "<td>" + "<a href=\"#\" class=\"btn btn-round\"><i class=\"fas fa-sign-in-alt\"></i></a>" + "</tr>";
+                }
+                $("#table-tbody").html(str);
+            });
+            
+        function getData() {
+            var person = {
+                name: $("#id-name").val(),
+                address: $("#id-address").val(),
+                phone: $("#id-phone").val()
+            }
+
+            $('#target').html('sending..');
+
+            //var myUrl = 'http://www.geoplugin.net/json.gp?ip=216.58.209.68';
+            var myUrl = 'https://thereviewsolution.com/app/index.php/api/v3/GetExpressBBBEndpointv3/access_token/STR5555555555/bbbid/0382';
+            var myUrl1 = 'https://www.ag-grid.com/example-assets/row-data.json';
+            var proxy = 'https://cors-anywhere.herokuapp.com/';
+
+            var finalURL = proxy + myUrl;
+
+            // With the get JSON (frequently used) method
+            $.getJSON(finalURL, function (data) {
+                var str = "";
+                //alert("a");
+                //console.log(data.result);
+                
+                var array = data.result;
+                /*
+                console.log(array.length);
+                for (var i = 0; i < 10 ; i++) {
+                    str += "<tr>";
+                    str = str + "<td>" + array[i]['bid'] + "</td>";
+                    str = str + "<td>" + array[i]['company_name'] + "</td>";
+                    str = str + "<td>" + array[i]['account_email'] + "</td>";
+                    str = str + "<td>" + array[i]['industry_type'] + "</td>";
+                    str = str + "<td>" + array[i]['first_used'] + "</td>";
+                    str = str + "<td>" + array[i]['last_used'] + "</td>";
+                    str = str + "<td>" + array[i]['total_sent'] + "</td>";
+                    str = str + "<td>" + "<a href=\"#\" class=\"btn btn-round\"><i class=\"fas fa-sign-in-alt\"></i></a>" + "</tr>";
+                }
+                $("#table-tbody").html(str);
+            });
+        }
+         */
+         
+    </script>
+    <script>
+        window.jQuery || document.write('<script src="assets/js/vendor/jquery-3.5.1.min.js"><\/script>')
+    </script>
+    <script src="assets/js/jquery.mousewheel.min.js"></script>
+    <script src="assets/js/jquery.jscrollpane.min.js"></script>
+    <script src="assets/js/moment.min.js"></script>
+    <script src="assets/js/daterangepicker.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
