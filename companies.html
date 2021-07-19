@@ -94,7 +94,8 @@
                             </div>
                         </div>
                         <div class="dashborad-body">
-                            <h3 class="title">Companies <span class="info" data-toggle="popover" data-placement="top" data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."><i
+                            <h3 class="title">Companies <span class="info" data-toggle="popover" data-placement="top"
+                                    data-content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."><i
                                         class="fas fa-info-circle"></i></span></h3>
                             <div class="dashborad-card">
                                 <div class="table-filter-wrap">
@@ -114,7 +115,8 @@
                                             <div class="table-head-right">
                                                 <div class="search-filter">
                                                     <i class="fas fa-search"></i>
-                                                    <input type="text" id="filter-text-box" placeholder="Search ..." oninput="onFilterTextBoxChanged()">
+                                                    <input type="text" id="filter-text-box" placeholder="Search ..."
+                                                        oninput="onFilterTextBoxChanged()">
                                                 </div>
                                                 <div class="table-button">
                                                     <button><img src="assets/img/excel.png" alt=""></button>
@@ -157,7 +159,7 @@
             gridOptions.api.setQuickFilter($('#filter-text-box').val());
         }
 
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             const columnDefs = [{
                 field: "bid",
@@ -224,14 +226,22 @@
             new agGrid.Grid(eGridDiv, gridOptions);
 
             // fetch the row data to use and one ready provide it to the Grid via the Grid API
+            // agGrid.simpleHttpRequest({
+            //         url: 'http://localhost:8080/' + 'https://thereviewsolution.com/app/index.php/api/v3/GetExpressBBBEndpointv3/access_token/STR5555555555/bbbid/0382'
+            //     })
+            //     .then(data => {
+            //         gridOptions.api.setRowData(data.result);
+            //     });
+
             agGrid.simpleHttpRequest({
-                    url: 'http://localhost:8080/' + 'https://thereviewsolution.com/app/index.php/api/v3/GetExpressBBBEndpointv3/access_token/STR5555555555/bbbid/0382'
+                    url: 'http://localhost:8080/readfile'
                 })
                 .then(data => {
                     gridOptions.api.setRowData(data.result);
                 });
 
-            $('#maxRows').on('change', function() {
+
+            $('#maxRows').on('change', function () {
                 paginationPageSize = this.value;
                 gridOptions.api.paginationSetPageSize(paginationPageSize);
             });

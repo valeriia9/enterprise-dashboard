@@ -1,75 +1,81 @@
-// Listen on a specific host via the HOST environment variable
-var host = process.env.HOST || '127.0.0.1';
-// Listen on a specific port via the PORT environment variable
-var port = process.env.PORT || 8080;
+const port = process.env.port || 8080;
 
-// Grab the blacklist from the command-line so that we can update the blacklist without deploying
-// again. CORS Anywhere is open by design, and this blacklist is not used, except for countering
-// immediate abuse (e.g. denial of service). If you want to block all origins except for some,
-// use originWhitelist instead.
+const cors = require("cors");
 
-var originBlacklist = parseEnvList(process.env.CORSANYWHERE_BLACKLIST);
-var originWhitelist = parseEnvList(process.env.CORSANYWHERE_WHITELIST);
-function parseEnvList(env) {
-  if (!env) {
-    return [];
-  }
-  return env.split(',');
-}
+global.fetch = require("node-fetch");
+var cron = require('node-cron');
+const bodyParser = require("body-parser");
 
-// Set up rate-limiting to avoid abuse of the public CORS Anywhere server.
-var checkRateLimit = require('./lib/rate-limit')(process.env.CORSANYWHERE_RATELIMIT);
+const file = 'my.txt';
 
-var cors_proxy = require('./lib/cors-anywhere');
-cors_proxy.createServer({
-  originBlacklist: originBlacklist,
-  originWhitelist: originWhitelist,
-  requireHeader: ['origin', 'x-requested-with'],
-  checkRateLimit: checkRateLimit,
-  removeHeaders: [
-    'cookie',
-    'cookie2',
-    // Strip Heroku-specific headers
-    'x-request-start',
-    'x-request-id',
-    'via',
-    'connect-time',
-    'total-route-time',
-    // Other Heroku added debug headers
-    // 'x-forwarded-for',
-    // 'x-forwarded-proto',
-    // 'x-forwarded-port',
-  ],
-  redirectSameOrigin: true,
-  httpProxyOptions: {
-    // Do not add X-Forwarded-For, etc. headers, because Heroku already adds it.
-    xfwd: false,
-  },
-}).listen(port, host, function() {
-  console.log('Running CORS Anywhere on ' + host + ':' + port);
+const express = require('express');
+const router = express.Router();
+
+
+const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cors());
+/*------------file read function start ------------------*/
+
+
+/*------------file read function end ------------------*/
+
+/*------------file write function start ------------------*/
+
+const jsonfile = require('./index');
+const { json } = require("express");
+var URL = 'https://thereviewsolution.com/app/index.php/api/v3/GetExpressBBBEndpointv3/access_token/STR5555555555/bbbid/0382';
+
+var task = cron.schedule('0 0 * * *', () => {
+    fetch(URL, {
+            method: 'GET', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+        .then(response => response.json())
+        .then(async data => {
+
+            jsonfile.writeFile(file, data)
+                .then(res => {
+                    console.log('Write complete')
+                })
+                .catch(error => console.error(error))
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
 });
 
+app.get('/readfile', function(req, res) {
 
+    console.log("GET From SERVER");
+    jsonfile.readFile(file)
+        .then(obj => {
+            res.send(obj);
+        })
+        .catch(error => console.error("geterror"));
+    //res.send(obj);
 
-/*
-var http = require('http');
-
-var options = {
-    host: 'google.com',
-    path: '/'
-}
-var request = http.request(options, function (res) {
-    var data = '';
-    res.on('data', function (chunk) {
-        data += chunk;
-    });
-    res.on('end', function () {
-        console.log(data);
-
-    });
 });
-request.on('error', function (e) {
-    console.log(e.message);
+
+app.post('/readfile', function(req, res) {
+    var ingredient = req.body;
+    //console.log(req.body);
+    var ingredients = jsonfile.readFile(file)
+        .then(obj => console.dir("postobj"))
+        .catch(error => console.error("posterror"));
+    ingredients.push(ingredient);
+    //console.log(ingredients);
+    res.send(req.body);
 });
-request.end();
-*/
+
+app.use("/", router);
+
+
+app.listen(port, () => {
+    console.log('server upo');
+    task.start();
+});
